@@ -36,7 +36,6 @@ router.post("/drones/:id", async (req, res, next) => {
     }
     res.status(200).json(updatedDrone);
   } catch (err) {
-    console.error(err);
     next(400);
   }
 });
@@ -45,10 +44,9 @@ router.delete("/drones/:id", async (req, res, next) => {
   // Iteration #5: Delete the drone
   try {
     const id = req.params.id;
-    const deleteDrone = await Drones.findByIdAndDelete(req.param.id);
-    res.status(201).json({ message: `Drone ${id} successfully deleted` });
+    const deleteDrone = await Drones.findByIdAndDelete(id);
+    res.json({ message: `Drone ${deleteDrone.id} successfully deleted` });
   } catch (err) {
-    console.error(err);
     next(400);
   }
 });
