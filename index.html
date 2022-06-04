@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>My Drones</title>
+  </head>
+  <body>
+    <main>
+      <h1>Drones</h1>
+      <p>
+        create a small webpage that can show all the drones to the user. Add
+        some basic styling. You can go further and create forms for creating and
+        updating, as well as a button for deleting.
+      </p>
+      <section id="myDrones">
+        <h2>All my drones</h2>
+        <ul id="dronesContainer"></ul>
+      </section>
+      <section id="createDrone">
+        <h2>Create a new drone</h2>
+        <form class="myForms" action="./">
+          <input type="text" name="name" id="name" />
+          <input type="number" name="propellers" id="propellers" />
+          <input type="number" name="maxSpeed" id="maxSpeed" />
+          <input type="submit" value="Create a new drone" />
+        </form>
+      </section>
+      <section id="updateDrone">
+        <h2>Update a drone</h2>
+      </section>
+    </main>
+
+    <template id="droneTemplate">
+      <li class="oneDrone">
+        <ul>
+          <li>Name: <span class="name"></span></li>
+          <li>Propellers: <span class="prop"></span></li>
+          <li></li>
+          <li>Max speed: <span class="maxSpeed"></span></li>
+          <li></li>
+        </ul>
+      </li>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
