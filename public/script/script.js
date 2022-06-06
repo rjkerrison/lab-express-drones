@@ -4,24 +4,24 @@ const myUrlCreate = "http://localhost:3000/drones";
 // DOM
 const dronesContainer = document.getElementById("dronesContainer");
 const droneTemplate = document.getElementById("droneTemplate");
-
+const droneTplContent = droneTemplate.content;
 
 function printAllDrones(allDrones) {
   console.log("print");
   allDrones.forEach((drone) => {
-    const myDrone = dronesContainer.importNode(droneTemplate.content, true);
-    dronesContainer.appendChild(myDrone);
-    myDrone.querySelector(".name").textContent = drone.name;
-    myDrone.querySelector(".prop").textContent = drone.prop;
-    myDrone.querySelector(".maxSpeed").textContent = drone.maxSpeed;
+    console.log(drone);
+    const oneDrone = document.importNode(droneTplContent, true);
+    oneDrone.querySelector(".name").textContent = drone.name;
+    oneDrone.querySelector(".prop").textContent = drone.propellers;
+    oneDrone.querySelector(".maxSpeed").textContent = drone.maxSpeed;
+    dronesContainer.appendChild(oneDrone);
   });
 }
 
 async function getAllDrones() {
   try {
     const response = await fetch(myUrlCreate);
-    const myDrones = response.json;
-    console.log(myDrones);
+    const myDrones = await response.json();
     printAllDrones(myDrones);
   } catch (error) {
     console.error(error);
