@@ -8,6 +8,10 @@ module.exports = (app) => {
     // whenever you call next(err), this middleware will handle the error
     // always logs the error
     console.error('ERROR', req.method, req.path, err)
+    if (err === 400) {
+      res.status(400).json("Error 400 : Bad request ");
+    }
+    
 
     // only render if the error occurred before sending the response
     if (!res.headersSent) {
