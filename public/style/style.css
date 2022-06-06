@@ -1,0 +1,13 @@
+.myForms {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.myForms * {
+  margin: 5px 0;
+}
+
+.oneDrone {
+  padding: 5px 0;
+}
