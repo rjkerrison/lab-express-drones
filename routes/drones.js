@@ -34,7 +34,7 @@ router.post('/drones/:id', async (req, res, next) => {
   // Iteration #4: Update the drone
   // ... your code here
   try {
-    const [droneId, droneUpdate] = [req.params.id, req.body]
+    const [droneId, droneUpdate] = [req.params.id, req.body],
     updatedDrone = await Drone.findByIdAndUpdate(droneId, droneUpdate, { new: true });
 
     return res.status(200).json(updatedDrone);
